@@ -1,8 +1,16 @@
-// const URL = 'https://api.thecatapi.com/v1/images/search';
-const apiURL = 'https://api.thecatapi.com/v1/images/search?limit=8&api_key=live_fkcA6ho5HOqOUScngIY0LCekfptB7wA0KQ4KFtF6HBpOc6R4uxSS4eqWQf6TSFWK';
-
-// const apiFavorites = 'https://api.thecatapi.com/v1/favourites';
 const apiUpload = 'https://api.thecatapi.com/v1/images/upload';
+
+//utils
+const lazyLoad = new IntersectionObserver((entry, observer)=>{
+    entry.forEach((i)=>{
+        if(i.isIntersecting){
+            const img = i.target;
+            const url = img.getAttribute('data');
+            img.setAttribute('src', url)
+            observer.unobserve(img)
+        }
+    })
+})
 
 //Instancia de AXIOS
 const axioInstance = new axios.create({
@@ -41,12 +49,14 @@ function getCats(){
             // console.log(res)
             if(res.status == 200){
                 const data = res.data;
+
+
                     data.forEach((i)=>{
                         // console.log(i)
                         cats = `
                                 <div class="card">
                                     <div class="imgBx">
-                                        <img alt="Fto de Gatos" width="300" src="${i.url}">
+                                        <img alt="Fto de Gatos" width="300" data="${i.url}">
                                     </div>
                                     <div class="conentBx">
                                         <button href="#" id="${i.id}" class="btns">
@@ -62,6 +72,8 @@ function getCats(){
                                 </div>
                                 
                                 `
+
+                        
                         imgBx.innerHTML += cats;
                         contador++;
                        
@@ -88,8 +100,14 @@ function getCats(){
                                     }
                                 }
                             })
-                        }       
-                        
+                        }
+                    })
+
+                    const imgs = imgBx.querySelectorAll('img');
+
+                    // console.log(imgs)
+                    imgs.forEach((j)=>{
+                        lazyLoad.observe(j)
                     })
                     
             }else{
@@ -121,7 +139,8 @@ function getFavorites(){
                             btn.appendChild(btnText)
         
 
-                            img.src = i.image.url;
+                            // img.src = i.image.url;
+                            img.setAttribute('data', i.image.url)
                             article.appendChild(img)
                             article.appendChild(btn)
                             section.appendChild(article)
@@ -130,6 +149,7 @@ function getFavorites(){
                             btn.id = i.id;
 
                             inputDelete(btn);
+                            lazyLoad.observe(img)
                            
                         })
             }else{
@@ -171,7 +191,7 @@ function deleteFavorites(idelete){
         method: "DELETE"
     }).then(
         (res)=>{
-            console.log(res)
+            // console.log(res)
            if(res.status != 200){
                 spanError.innerHTML = res.status;
            }else{
