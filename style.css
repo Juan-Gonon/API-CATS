@@ -1,0 +1,278 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(90deg, rgb(131, 58, 180) 0%, rgb(29, 253, 224) 62%, rgb(252, 176, 69) 100%);
+}
+
+.conteinerBg {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.conteinerBg h1 {
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-size: 3rem;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: enhanced-header linear both;
+  animation-timeline: scroll(root block);
+  animation-range: 0 600px;
+}
+.conteinerBg .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 10px;
+}
+.conteinerBg .container .card {
+  position: relative;
+  width: 320px;
+  height: 420px;
+  margin: 0 8px;
+  overflow: hidden;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  animation: reveal linear both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 30%;
+}
+.conteinerBg .container .card .imgBx {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.conteinerBg .container .card .imgBx img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.conteinerBg .container .card .conentBx {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  z-index: 100;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  padding: 0 15px;
+}
+.conteinerBg .container .card .conentBx::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #333 30%, transparent);
+}
+.conteinerBg .container .card .conentBx .btns {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+.conteinerBg .container .card .conentBx .btns.active span ion-icon {
+  color: red;
+}
+.conteinerBg .container .card .conentBx .btns span {
+  font-size: 25px;
+}
+.conteinerBg .container .card .conentBx .btns span ion-icon {
+  color: #fff;
+}
+.conteinerBg #uploadMish {
+  position: relative;
+  top: 60px;
+  left: 0;
+  padding: 5px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.conteinerBg #uploadMish h2 {
+  color: #fff;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  transition: letter-spacing 0.5s;
+  margin-bottom: 5px;
+}
+.conteinerBg #uploadMish h2:hover {
+  text-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+}
+.conteinerBg #uploadMish #uploadingForm {
+  width: 400px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
+.conteinerBg #uploadMish #uploadingForm input {
+  padding: 5px 15px;
+  color: #fff;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.conteinerBg #uploadMish #uploadingForm #imgPrev {
+  width: 100px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+.conteinerBg #uploadMish #uploadingForm #imgPrev img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.conteinerBg #uploadMish #uploadingForm button {
+  position: relative;
+  cursor: pointer;
+  z-index: 1000;
+  border: none;
+  color: #333;
+  padding: 10px 50px;
+  border-radius: 15px;
+  font-weight: 700;
+  transition: letter-spacing 0.25s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.conteinerBg #uploadMish #uploadingForm button:hover {
+  letter-spacing: 2px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+.conteinerBg .Content__favorites {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  padding: 20px;
+}
+.conteinerBg .Content__favorites h2 {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 300;
+  text-align: start;
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+}
+.conteinerBg .Content__favorites .favorites {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.conteinerBg .Content__favorites .favorites article {
+  position: relative;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 150px;
+  height: 200px;
+  overflow: hidden;
+}
+.conteinerBg .Content__favorites .favorites article img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.conteinerBg .Content__favorites .favorites article button {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 2px 15px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+  border-radius: 30px;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+.conteinerBg .Content__favorites .favorites article button:hover {
+  background: red;
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .conteinerBg .container .card {
+    margin: 10px 0;
+  }
+  .conteinerBg #uploadMish h2 {
+    text-align: center;
+  }
+  .conteinerBg .Content__favorites {
+    justify-content: center;
+    align-items: center;
+    padding: 10px 60px;
+    margin-top: 20px;
+  }
+}
+@keyframes enhanced-header {
+  to {
+    background: rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+    font-size: 1.5rem;
+    color: #333;
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    translate: 0 100px;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}/*# sourceMappingURL=style.css.map */

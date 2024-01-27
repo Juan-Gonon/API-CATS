@@ -1,0 +1,19 @@
+{
+  "name": "api-cats",
+  "version": "1.0.0",
+  "description": "API CATS JS",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juan-Gonon/API-CATS.git"
+  },
+  "author": "@Juan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Juan-Gonon/API-CATS/issues"
+  },
+  "homepage": "https://github.com/Juan-Gonon/API-CATS#readme"
+}

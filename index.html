@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gatos Alatorios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="conteinerBg">
+        <h1>API CAT'S</h1>
+        <span id="error"></span>
+        <section class="container">
+        </section>
+
+        <section id="uploadMish">
+            <h2>Sube fotos de tus Gatos</h2>
+            <form id="uploadingForm">
+                <input type="file" id="file" name="file" onchange="previewImage()" >
+                <div id="imagePreview">
+                    <img id="imgPrev">
+                </div>
+                <button type="button" id="btnFile">Agregar</button>
+            </form>
+            
+        </section>
+
+        <section class="Content__favorites">
+            <h2>favorites</h2>
+            <div class="favorites">
+
+            </div>
+
+        </section>
+    
+    </div>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+   
+    <script src="main.js"></script>
+</body>
+</html>
